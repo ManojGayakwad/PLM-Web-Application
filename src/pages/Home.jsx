@@ -22,7 +22,7 @@ const Home = ({ onOpen }) => {
             backgroundRepeat="no-repeat"
 
         >
-            <Box color="white" display='flex' justifyContent={{ base: "justify", md: "center" }} gap={28}>
+            <Box color="white" display='flex' justifyContent={{ base: "center", md: "center" }} gap={28}>
                 <Box padding={{ base: "10px", md: "20px" }} mt={{base:32, md:56}}  >
                     {/* <Text p={2} textAlign="center" bgColor="rgba(34, 34, 34, .5)" width={{ base: "40%", md: "20%" }} ml={{ base: "80px", md: "0px" }}>BATCH 3</Text> */}
                     {/* Programme in Data Science and Artificial Intelligence */}
