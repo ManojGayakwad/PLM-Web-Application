@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Flex,
     Box,
-    Image,
     FormControl,
     InputGroup,
     InputLeftElement,
@@ -10,18 +9,92 @@ import {
     Input,
     Textarea,
     Button,
-    Heading,
     Text,
-    Icon
+    Icon,
+    useToast
 } from '@chakra-ui/react';
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { ref, push } from 'firebase/database';
+import { db } from '../firebaseConfig';
 
 const ContactPage = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    });
+
+    const [errors, setErrors] = useState({});
+    const toast = useToast();
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value,
+        });
+    };
+
+    const validate = () => {
+        let errors = {};
+        if (!formData.name) errors.name = "Name is required";
+        if (!formData.phone) {
+            errors.phone = "Phone is required";
+        } else if (!/^\d{10}$/.test(formData.phone)) {
+            errors.phone = "Phone number is invalid. It should be 10 digits";
+        }
+        if (!formData.email) {
+            errors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            errors.email = "Email is invalid";
+        }
+        if (!formData.message) errors.message = "Message is required";
+        return errors;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+        setErrors({});
+        try {
+            await push(ref(db, 'contactdetailonweb'), formData);
+            toast({
+                title: 'Successfully Submitted',
+                description: 'Your application has been submitted successfully.',
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+            });
+            handleClose();
+        } catch (e) {
+            toast({
+                title: 'Submission Failed.',
+                description: 'There was an error submitting your application. Please try again.',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            });
+        }
+    };
+
+    const handleClose = () => {
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            message: ''
+        });
+        setErrors({});
+    };
+
     return (
-        <Flex p={4} justify="center" backgroundImage="linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./c2.jpg')" // Path to your background image
+        <Flex p={4} justify="center" backgroundImage="linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./c2.jpg')"
             backgroundSize="contain,100% 100%,100% 100%"
             backgroundPosition="cover"
-            // height={{ base: "100vw", md: "40vw" }}
             backgroundRepeat="no-repeat">
             <Flex
                 maxW="1200px"
@@ -32,26 +105,14 @@ const ContactPage = () => {
                 boxShadow="md"
                 rounded="lg"
                 overflow="hidden"
-            // border="2px solid gray"
-
             >
-                {/* Left Side - Image */}
-                {/* <Box w={{ base: '100%', md: '50%' }} >
-                    <Image
-                        src="./c3.png"
-                        alt="Contact Image"
-                        objectFit="cover"
-                        w="100%"
-                        h={{ base: 'auto', md: '100%' }}
-                    />
-                </Box> */}
                 <Box color="white" w={{ base: '100%', md: '50%' }} fontFamily="arial" fontSize={{ base: "16px", md: "20px" }} display="flex" gap={10} flexDir="column" >
                     <Text fontSize={{ base: "18px", md: "35px" }}>Contact Us</Text>
                     <Box mt={4}>
                         <Box display="flex" alignItems="center" mb={2}>
                             <Icon as={FaPhoneAlt} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
-                                <Text >Call Us</Text>
+                                <Text>Call Us</Text>
                                 <Text>+91-9975001439</Text>
                             </Box>
                         </Box>
@@ -71,49 +132,105 @@ const ContactPage = () => {
                         </Box>
                     </Box>
                 </Box>
-                {/* Right Side - Contact Form with Blue Background */}
-                <Box w={{ base: '100%', md: '40%' }} m={6} background="transparent" boxShadow="md" border="0.5px solid white" borderRadius="15px" >
-                    <FormControl p={4}>
-                        <FormLabel color="white">Name</FormLabel>
-                        <InputGroup mb={4}>
-                            <InputLeftElement
-                                pointerEvents="none"
-                                m={1}
-                                fontSize="lg"
-                                children={<FaUser color="gray.400" />}
+                <Box w={{ base: '100%', md: '35%' }} m={6} background="transparent" boxShadow="md" border="0.5px solid white" borderRadius="15px" >
+                    <form onSubmit={handleSubmit}>
+                        <FormControl p={3} isInvalid={errors.name}>
+                            <FormLabel color="white">Name</FormLabel>
+                            <InputGroup >
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    m={1}
+                                    fontSize="lg"
+                                    children={<FaUser color="gray.400" />}
+                                />
+                                <Input
+                                    type="text"
+                                    size="lg"
+                                    borderRadius="20px"
+                                    placeholder="Your name"
+                                    bg="white"
+                                    id="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
+                            </InputGroup>
+                            {errors.name && <Text color="red.500">{errors.name}</Text>}
+                        </FormControl>
+
+                        <FormControl p={3} isInvalid={errors.email}>
+                            <FormLabel color="white">Email</FormLabel>
+                            <InputGroup >
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    m={1}
+                                    fontSize="lg"
+                                    children={<FaEnvelope color="gray.300" />}
+                                />
+                                <Input
+                                    type="email"
+                                    size="lg"
+                                    borderRadius="20px"
+                                    placeholder="Your email"
+                                    bg="white"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
+                            </InputGroup>
+                            {errors.email && <Text color="red.500">{errors.email}</Text>}
+                        </FormControl>
+
+                        <FormControl p={3} isInvalid={errors.phone}>
+                            <FormLabel color="white">Phone</FormLabel>
+                            <InputGroup>
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    m={1}
+                                    fontSize="lg"
+                                    children={<FaPhoneAlt color="gray.300" />}
+                                />
+                                <Input
+                                    type="text"
+                                    size="lg"
+                                    borderRadius="20px"
+                                    placeholder="Your phone"
+                                    bg="white"
+                                    id="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                />
+                            </InputGroup>
+                            {errors.phone && <Text color="red.500">{errors.phone}</Text>}
+                        </FormControl>
+
+                        <FormControl p={3} isInvalid={errors.message}>
+                            <FormLabel color="white">Message</FormLabel>
+                            <Textarea
+                                placeholder="Your message"
+                                borderRadius="20px"
+                                size="lg"
+                                mb={4}
+                                bg="white"
+                                id="message"
+                                value={formData.message}
+                                onChange={handleChange}
                             />
-                            <Input type="text" size="lg" borderRadius="20px" placeholder="Your name" bg="white" />
-                        </InputGroup>
+                            {errors.message && <Text color="red.500">{errors.message}</Text>}
+                        </FormControl>
 
-                        <FormLabel color="white">Email</FormLabel>
-                        <InputGroup mb={4}>
-                            <InputLeftElement
-                                pointerEvents="none"
-                                m={1}
-                                fontSize="lg"
-                                children={<FaEnvelope color="gray.300" />}
-                            />
-                            <Input type="email" size="lg" borderRadius="20px" placeholder="Your email" bg="white" />
-                        </InputGroup>
-
-                        <FormLabel color="white">Phone</FormLabel>
-                        <InputGroup mb={4}>
-                            <InputLeftElement
-                                pointerEvents="none"
-                                m={1}
-                                fontSize="lg"
-                                children={<FaPhoneAlt color="gray.300" />}
-                            />
-                            <Input type="phone" size="lg" borderRadius="20px" placeholder="Your phone" bg="white" />
-                        </InputGroup>
-
-                        <FormLabel color="white">Message</FormLabel>
-                        <Textarea placeholder="Your message" borderRadius="20px" size="lg" mb={4} bg="white" />
-
-                        <Button bgColor="#003399" variant="simple" width="100%" borderRadius="20px" color="white" type="submit">
+                        <Button
+                            bgColor="#003399"
+                            variant="simple"
+                            width="90%"
+                            ml={5}
+                            borderRadius="20px"
+                            color="white"
+                            type="submit"
+                            mb={4}
+                        >
                             Submit
                         </Button>
-                    </FormControl>
+                    </form>
                 </Box>
             </Flex>
         </Flex>

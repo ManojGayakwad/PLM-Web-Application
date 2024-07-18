@@ -11,7 +11,7 @@ export const Footer = () => {
         <>
             <Contact />
             <Box display="flex" justifyContent={{base:"justify" , md:"space-around"}} p="20px" flexDirection={{base:"column", md:"row"}} bgColor="#f1f3f4" >
-                <Box alignSelf="center" >
+                <Box alignSelf={{base:"justify",md:"center"}}>
                     <a href="/" className="d-flex align-items-center p-0 text-dark">
                         <Image alt="logo" src="./logo.png" boxSize={32} />
                         <Box display="flex" flexDirection="column" alignItems="justify" justifyContent="justify">

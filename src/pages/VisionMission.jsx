@@ -16,7 +16,7 @@ const VisionMission = () => {
                         <Text fontSize={{ base: "15px", md: "20px" }}   mb={4} fontFamily="Arial" textAlign="justify">To be the leading global institution for Product Life Cycle Management (PLM) training and education, empowering individuals and organizations to enhance their skills and capabilities in managing product lifecycles effectively and efficiently.</Text>
                     </Box>
                 </Box>
-                <Box display='flex' mt="50px" flexDirection={{ base: "column-reverse", md: "row" }} gap="20px">
+                <Box display='flex' mt="50px" flexDirection={{ base: "column-reverse", md: "row" }} gap="20px" >
                     
                     <Box>
                     <Text fontSize={{ base: "15px", md: "25px" }} fontFamily="Arial" fontWeight="700">Mission: </Text>
@@ -31,9 +31,9 @@ const VisionMission = () => {
                         </UnorderedList> */}
                         {/* <Text fontSize={{ base: "15px", md: "20px" }} mt={4} fontFamily="Arial">By pursuing this vision and mission, we aim to contribute to the advancement of PLM as a critical discipline for driving innovation, efficiency, and sustainability across industries. </Text> */}
                     </Box>
-                    <Box mt={-5} w="100%"  >
+                    <Box mt={-5} w={{base:"100%",md:"80%"}} h="30%">
                         {/* <Image src="./ab2.jpg" borderRadius="10px"  alt="about" /> */}
-                        <Image src="./bg2.jpg"  borderRadius="10px"  alt="about" />
+                        <Image src="./bg2.jpg" w="100%" h="40%"  borderRadius="10px"  alt="about" />
                         {/* <Image src="./ab5.avif" borderRadius="10px" mt="20px"  alt="about" /> */}
                     </Box>
                 </Box>
