@@ -11,8 +11,8 @@ const services = [
 ];
 
 const ServiceCard = ({ service }) => (
-    <Box bg="gray.100" p={0} m={2} borderRadius="md" boxShadow="md">
-        <Image src={service.image} w={80} h={{base:40, md:80}} alt={service.name} borderTopRadius="md" />
+    <Box bg="gray.100" p={0} m={2} borderRadius="25px" boxShadow="md" border="2px solid" borderColor="teal" >
+        {/* <Image src={service.image} w={80} h={{base:40, md:80}} alt={service.name} borderTopRadius="md" /> */}
         <Text mt={2} p={4} fontSize={{ base: '15px', md: '20px' }} fontFamily="Arial" fontWeight="500">
             {service.name}
         </Text>

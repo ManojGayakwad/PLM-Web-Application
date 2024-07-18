@@ -4,7 +4,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
-function Navbar() {
+function Navbar({ onOpen }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -41,7 +41,7 @@ function Navbar() {
                     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center">
                         <Image src="./logo.png" boxSize={20} alt="logo" />
                         <Box display="flex" flexDirection="column" alignItems="justify" justifyContent="justify">
-                            <Text fontFamily="Copperplate Gothic Bold" fontWeight="700" fontSize="21px">
+                            <Text fontFamily="Copperplate Gothic Bold" fontWeight="700"  fontSize="21px">
                                 ExpertPLM Technologies
                             </Text>
                             <Text fontSize="14px">We Build PLM experts</Text>
@@ -57,7 +57,7 @@ function Navbar() {
                 />
                 <Box
                     pos="absolute"
-                    top="65px"
+                    top="90px"
                     left="0"
                     w="100%"
                     bg="gray.100"
@@ -76,7 +76,7 @@ function Navbar() {
                                 About Us
                             </Text>
                         </ScrollLink>
-                        <Text variant="simple" _hover={underlineStyle} fontWeight="500">
+                        <Text  onClick={onOpen} variant="simple" _hover={underlineStyle} fontWeight="500">
                             Enquiry form
                         </Text>
                         <Text variant="simple" _hover={underlineStyle} fontWeight="500">
@@ -102,7 +102,7 @@ function Navbar() {
                             About Us
                         </Text>
                     </ScrollLink>
-                    <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
+                    <Text onClick={onOpen} variant="simple" _hover={{ color: 'teal' }} mr="2">
                         Enquiry form
                     </Text>
                     <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
