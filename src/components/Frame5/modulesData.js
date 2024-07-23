@@ -15,7 +15,7 @@ export const modules = [
   },
   {
     number: "2",
-    name: "Teamcenter UA Application Administrationl",
+    name: "Teamcenter UA Application Administration",
     items: [
       "Organization",
       "Workflow Designer",
