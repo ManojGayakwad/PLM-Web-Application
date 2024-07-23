@@ -1,18 +1,19 @@
 import Navbar from "./components/Navbar";
-import { ChakraProvider , useDisclosure, Box } from '@chakra-ui/react';
+import { ChakraProvider, useDisclosure, Box } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import Aboutus from "./pages/Aboutus";
 import Vision from "./pages/VisionMission";
 import Frame5 from "./components/Frame5/Frame5";
 import { Footer } from "./components/Footer";
 import EnquiryFormModal from "./pages/enquiryForm";
+import FloatingWhatsAppButton from "./components/whatsapp/whatsapp";
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box>
-      <Navbar  onOpen={onOpen}/>
+      <Navbar onOpen={onOpen} />
       <Box id="home">
         <Home />
       </Box>
@@ -26,7 +27,11 @@ function App() {
       <Box id="footer">
         <Footer />
       </Box>
-      <EnquiryFormModal isOpen={isOpen} onClose={onClose}/>
+      <EnquiryFormModal isOpen={isOpen} onClose={onClose} />
+      <FloatingWhatsAppButton
+        phoneNumber="+917558249093" // Replace with your phone number in international format
+        message="Hello, My friend."
+      />
     </Box>
   );
 }

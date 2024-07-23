@@ -27,7 +27,7 @@ const Aboutus = () => {
                 <Box display='flex' flexDirection={{ base: "column-reverse", md: "row" }} gap={10}>
                     <Box >
                         <Text fontSize={{ base: "17px", md: "20px" }} mb={4} fontFamily="Arial" textAlign="justify">ExpertPLM Technologies is highly recommended Siemens Authorized Training Partner (Siemens Solution Partner) for High End Teamcenter UA PLM Training for Fresher, Industry professional and Corporate.</Text>
-                        <Text fontSize={{ base: "17px", md: "20px" }} mb={4} fontFamily="Arial" textAlign="justify">We are having rich experience in providing a wide range of services for our customers like PLM Development/Customer, Implementation and Testing.</Text>
+                        <Text fontSize={{ base: "17px", md: "20px" }} mb={4} fontFamily="Arial" textAlign="justify">We are having rich experience in providing a wide range of services for our customers like PLM Development/Customization, Implementation and Testing.</Text>
                         <Text fontSize={{ base: "17px", md: "20px" }} fontFamily="Arial"  textAlign="justify">We make sure that every need to be catered to streamline the business processes.</Text>
                     </Box>
                     <Box mt={{base:0, md:-10}}>

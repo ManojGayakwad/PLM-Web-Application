@@ -11,9 +11,12 @@ import {
     Button,
     Text,
     Icon,
-    useToast
+    useToast,
+    Image
 } from '@chakra-ui/react';
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { MdContactPhone } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { ref, push } from 'firebase/database';
 import { db } from '../firebaseConfig';
 
@@ -102,7 +105,7 @@ const ContactPage = () => {
                 justify="center"
                 align="center"
                 direction={{ base: 'column', md: 'row' }}
-                boxShadow="md"
+                // boxShadow="md"
                 rounded="lg"
                 overflow="hidden"
             >
@@ -110,10 +113,18 @@ const ContactPage = () => {
                     <Text fontSize={{ base: "18px", md: "35px" }}>Contact Us</Text>
                     <Box mt={4}>
                         <Box display="flex" alignItems="center" mb={2}>
-                            <Icon as={FaPhoneAlt} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
+                            <Icon as={MdContactPhone} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
                                 <Text>Call Us</Text>
-                                <Text>+91-9975001439</Text>
+                                <Text>+91-7387501439/-9975001439</Text>
+
+                            </Box>
+                        </Box>
+                        <Box display="flex" alignItems="center" mb={2}>
+                            <Icon as={MdEmail} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
+                            <Box>
+                                <Text>Email Us</Text>
+                                <Text>info@expertplmtechnologies.com</Text>
                             </Box>
                         </Box>
                         <Box display="flex" alignItems="center" mb={2}>
@@ -127,13 +138,13 @@ const ContactPage = () => {
                             <Icon as={FaClock} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
                                 <Text>Business Hours</Text>
-                                <Text>Mon – Fri …… 10 am – 8 pm, Sat, Sun ....… Closed</Text>
+                                <Text>All Day :- 10 am – 8 pm</Text>
                             </Box>
                         </Box>
                     </Box>
                 </Box>
                 <Box w={{ base: '100%', md: '35%' }} m={6} background="transparent" boxShadow="md" border="0.5px solid white" borderRadius="15px" >
-                    <form onSubmit={handleSubmit}>
+                    {/* <form onSubmit={handleSubmit}>
                         <FormControl p={3} isInvalid={errors.name}>
                             <FormLabel color="white">Name</FormLabel>
                             <InputGroup >
@@ -230,7 +241,20 @@ const ContactPage = () => {
                         >
                             Submit
                         </Button>
-                    </form>
+                    </form> */}
+                    <Image src="./c3.png" mb={-14} />
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Button
+                        bgColor="#003399"
+                        variant="simple"
+                        width="90%"
+                        ml={5}
+                        borderRadius="20px"
+                        color="white"
+                        type="submit"
+                        m={4}
+                    >
+                        Contact Us
+                    </Button></a>
                 </Box>
             </Flex>
         </Flex>

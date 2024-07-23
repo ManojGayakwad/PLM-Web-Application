@@ -34,8 +34,13 @@ function Navbar({ onOpen }) {
                 right={0}
                 zIndex={1000}
                 position="sticky"
+               
                 // top="0"
                 boxShadow="md"
+                bgColor="transparent"
+                backgroundImage="linear-gradient(to top left, #CAF4FF, transparent), linear-gradient(to top right, white, transparent)"
+                backgroundSize="cover"
+                backgroundBlendMode="screen"
             >
                 <Link to="/">
                     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center">
@@ -76,12 +81,12 @@ function Navbar({ onOpen }) {
                                 About Us
                             </Text>
                         </ScrollLink>
-                        <Text  onClick={onOpen} variant="simple" _hover={underlineStyle} fontWeight="500">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={underlineStyle} fontWeight="500">
                             Enquiry form
-                        </Text>
-                        <Text variant="simple" _hover={underlineStyle} fontWeight="500">
+                        </Text></a>
+                        {/* <Text variant="simple" _hover={underlineStyle} fontWeight="500">
                             Download Brochure
-                        </Text>
+                        </Text> */}
                         <ScrollLink to="footer" smooth={true} duration={500} offset={-60}>
                             <Text variant="simple" _hover={underlineStyle} fontWeight="500">
                                 Contact Us
@@ -102,12 +107,12 @@ function Navbar({ onOpen }) {
                             About Us
                         </Text>
                     </ScrollLink>
-                    <Text onClick={onOpen} variant="simple" _hover={{ color: 'teal' }} mr="2">
+                   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={{ color: 'teal' }} mr="2">
                         Enquiry form
-                    </Text>
-                    <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
+                    </Text></a> 
+                    {/* <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
                         Download Brochure
-                    </Text>
+                    </Text> */}
                     <ScrollLink to="footer" smooth={true} duration={500} offset={-60}>
                         <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
                             Contact Us
