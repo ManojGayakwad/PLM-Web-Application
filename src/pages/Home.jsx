@@ -33,8 +33,10 @@ const Home = ({ onOpen }) => {
                             bg={'blue.400'}
                             rounded={'full'}
                             color={'white'}
+                            fontSize={{base:"15px", md:"20px"}}
+                            whiteSpace="wrap"
                             _hover={{ bg: 'blue.500' }}>
-                            Get Started
+                          Get Started One Year Professional Certificate Programme
                         </Button>
                         </a>
                     </VStack>
