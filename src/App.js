@@ -22,14 +22,14 @@ function App() {
       </Box>
 
       <Box id="frame5">
-        <Frame5 />
+        <Frame5 /> 
       </Box>
       <Box id="footer">
         <Footer />
       </Box>
       <EnquiryFormModal isOpen={isOpen} onClose={onClose} />
       <FloatingWhatsAppButton
-        phoneNumber="+917558249093" // Replace with your phone number in international format
+        phoneNumber="+917387501439" // Replace with your phone number in international format
         message="Hello, My friend."
       />
     </Box>

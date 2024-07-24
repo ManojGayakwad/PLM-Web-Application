@@ -116,7 +116,7 @@ const ContactPage = () => {
                             <Icon as={MdContactPhone} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
                                 <Text>Call Us</Text>
-                                <Text>+91-7387501439/-9975001439</Text>
+                                <Text>+91-9975001439/7387501439</Text>
 
                             </Box>
                         </Box>
