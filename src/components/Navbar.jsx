@@ -81,9 +81,9 @@ function Navbar({ onOpen }) {
                                 About Us
                             </Text>
                         </ScrollLink>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={underlineStyle} fontWeight="500">
+                        {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={underlineStyle} fontWeight="500">
                             Enquiry form
-                        </Text></a>
+                        </Text></a> */}
                         {/* <Text variant="simple" _hover={underlineStyle} fontWeight="500">
                             Download Brochure
                         </Text> */}
@@ -107,9 +107,9 @@ function Navbar({ onOpen }) {
                             About Us
                         </Text>
                     </ScrollLink>
-                   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={{ color: 'teal' }} mr="2">
+                   {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Text variant="simple" _hover={{ color: 'teal' }} mr="2">
                         Enquiry form
-                    </Text></a> 
+                    </Text></a>  */}
                     {/* <Text variant="simple" _hover={{ color: 'teal' }} mr="2">
                         Download Brochure
                     </Text> */}

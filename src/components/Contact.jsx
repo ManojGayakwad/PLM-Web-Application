@@ -243,7 +243,7 @@ const ContactPage = () => {
                         </Button>
                     </form> */}
                     <Image src="./c3.png" mb={-14} />
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Button
+                    {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNufT69Qen-fONmrL55eQWUErnL44aNcBCRoxabrabstiWKA/viewform" target="_blank"><Button
                         bgColor="#003399"
                         variant="simple"
                         width="90%"
@@ -254,7 +254,7 @@ const ContactPage = () => {
                         m={4}
                     >
                         Contact Us
-                    </Button></a>
+                    </Button></a> */}
                 </Box>
             </Flex>
         </Flex>
