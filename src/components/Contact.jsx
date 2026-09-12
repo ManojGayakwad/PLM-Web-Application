@@ -116,7 +116,7 @@ const ContactPage = () => {
                             <Icon as={MdContactPhone} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
                                 <Text>Call Us</Text>
-                                <Text>+91-9975001439/7387501439</Text>
+                                <Text>+91-9975001439 / 7387501439</Text>
 
                             </Box>
                         </Box>
@@ -131,7 +131,7 @@ const ContactPage = () => {
                             <Icon as={FaMapMarkerAlt} mr={2} color="teal" fontSize={{ base: "15px", md: "25px" }} />
                             <Box>
                                 <Text>Location</Text>
-                                <Text>Bavdhan, Pune, Maharashtra</Text>
+                                <Text>Kothrud, Pune, Maharashtra</Text>
                             </Box>
                         </Box>
                         <Box display="flex" alignItems="center">
